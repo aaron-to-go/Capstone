@@ -1,10 +1,13 @@
 package com.example.backend.model;
 
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
 public class Card {
-    private int id;
+    @Id
+    private String id;
     private String title;
     private String description;
     private LocalDateTime datetime;
