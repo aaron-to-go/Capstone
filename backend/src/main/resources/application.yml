@@ -1,8 +1,0 @@
-spring:
-  data:
-    mongodb:
-      authentication-database: admin
-      username: aaron
-      password: 1234
-      uri: mongodb://aaron:1234@capstone.2rjun.mongodb.net
-
