@@ -1,6 +1,6 @@
 package com.example.backend.model;
 
-public enum Stages {
+public enum Stage {
     NEW ("new"),
     INDISCUSSION ("inDiscussion"),
     DISMISSED ("dismissed"),
@@ -9,7 +9,7 @@ public enum Stages {
 
     public final String label;
 
-    Stages(String label) {
+    Stage(String label) {
         this.label = label;
     }
 }

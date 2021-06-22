@@ -12,10 +12,10 @@ public class Card {
     private String description;
     private LocalDateTime datetime;
     private String user_id;
-    private Stages stage;
+    private Stage stage;
     private StageHistory[] history;
     private Set<String> votes;
     private Comment[] comments;
-    private Departments department;
+    private Department department;
     private Set<String> tags;
 }

@@ -1,6 +1,6 @@
 package com.example.backend.model;
 
-public enum Departments {
+public enum Department {
     MARKETING ("Marketing"),
     SALES ("Sales"),
     HR ("Human Resources"),
@@ -11,7 +11,7 @@ public enum Departments {
 
     public final String label;
 
-    Departments(String label) {
+    Department(String label) {
         this.label = label;
     }
 }
