@@ -61,6 +61,6 @@ jobs:
       - name: Login to heroku
         run: heroku container:login
       - name: Push docker container
-        run: heroku container:push web -a capstone
+        run: heroku container:push web -a insighter
       - name: Deploy docker container
-        run: heroku container:release web -a capstone
+        run: heroku container:release web -a insighter
