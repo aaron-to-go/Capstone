@@ -1,5 +1,6 @@
 package com.example.backend.repos;
 
+import com.example.backend.dto.CardDTO;
 import com.example.backend.model.Card;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

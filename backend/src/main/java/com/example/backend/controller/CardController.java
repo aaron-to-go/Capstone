@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.dto.CardDTO;
 import com.example.backend.model.Card;
 import com.example.backend.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,8 @@ public class CardController {
     }
 
     @PostMapping
-    public String addCard(@RequestBody Card card) {
-        cardService.addCard(card);
-        return "worked";
+    public CardDTO addCard(@RequestBody CardDTO cardDTO) {
+        return cardService.addCard(cardDTO);
     }
 
     @GetMapping
