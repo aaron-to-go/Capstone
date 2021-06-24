@@ -26,7 +26,7 @@ public class CardService {
 
         String newId = idGenerator.generateID();
 
-        List<StageHistory> history = List.of(new StageHistory(Stage.NEW, cardDTO.getUser_id()));
+        List<StageHistory> history = List.of(new StageHistory(Stage.NEW, cardDTO.getUser_id(),LocalDateTime.now()));
         Set<String> votes = Set.of();
         List<Comment> comments = List.of();
         Set<String> tags = Set.of();
