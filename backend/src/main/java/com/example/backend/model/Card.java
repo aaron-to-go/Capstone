@@ -1,10 +1,19 @@
 package com.example.backend.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Card {
     @Id
     private String id;
@@ -13,9 +22,9 @@ public class Card {
     private LocalDateTime datetime;
     private String user_id;
     private Stage stage;
-    private StageHistory[] history;
+    private List<StageHistory> history;
     private Set<String> votes;
-    private Comment[] comments;
+    private List<Comment> comments;
     private Department department;
     private Set<String> tags;
 }
