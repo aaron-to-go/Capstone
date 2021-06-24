@@ -22,7 +22,7 @@ public class CardService {
         this.idGenerator = idGenerator;
     }
 
-    public CardDTO addCard(CardDTO cardDTO) {
+    public void addCard(CardDTO cardDTO) {
 
         String newId = idGenerator.generateID();
 
@@ -46,6 +46,5 @@ public class CardService {
                 .build();
 
         cardRepo.save(newCard);
-        return cardDTO;
     }
 }

@@ -18,8 +18,8 @@ public class CardController {
     }
 
     @PostMapping
-    public CardDTO addCard(@RequestBody CardDTO cardDTO) {
-        return cardService.addCard(cardDTO);
+    public void addCard(@RequestBody CardDTO cardDTO) {
+        cardService.addCard(cardDTO);
     }
 
     @GetMapping
