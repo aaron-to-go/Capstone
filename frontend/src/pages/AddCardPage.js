@@ -16,6 +16,7 @@ export default function AddCardPage() {
                 <option value="HR">HR</option>
             </select>
         </label>
+        <button>Done</button>
     </form>
     )
 }
