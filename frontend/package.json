@@ -9,7 +9,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "axios": "^0.21.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,5 +38,6 @@
   },
   "devDependencies": {
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("cards")
+@RequestMapping("/api/cards")
 public class CardController {
 
     private final CardService cardService;
@@ -20,10 +20,4 @@ public class CardController {
     public void addCard(@RequestBody CardDTO cardDTO) {
         cardService.addCard(cardDTO);
     }
-
-    @GetMapping
-    public String test(){
-        return "test Get works";
-    }
-
 }
