@@ -47,4 +47,8 @@ public class CardService {
 
         cardRepo.save(newCard);
     }
+
+    public List<Card> listCards(){
+        return cardRepo.findAll();
+    }
 }
