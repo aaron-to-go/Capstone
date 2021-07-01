@@ -1,5 +1,6 @@
 package com.example.backend.service;
 
+import com.example.backend.config.GoogleLoginConfig;
 import com.example.backend.dto.GoogleAccessTokenDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -10,13 +11,12 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class GoogleLoginService {
     private final RestTemplate restTemplate;
-
-    private String client_id = "41125772544-es4ec32mlpq30rq3i8r8q5q8b3b25r7e.apps.googleusercontent.com";
-    private String client_secret = "nFkD0I3uSXJYvnixSSxgmVey";
+    private final GoogleLoginConfig googleLoginConfig;
 
     @Autowired
-    public GoogleLoginService(RestTemplate restTemplate) {
+    public GoogleLoginService(RestTemplate restTemplate, GoogleLoginConfig googleLoginConfig) {
         this.restTemplate = restTemplate;
+        this.googleLoginConfig = googleLoginConfig;
     }
 
     public String loginWithGoogle(String code){
@@ -25,10 +25,11 @@ public class GoogleLoginService {
     }
 
     private String getAccessToken(String code) {
-        String url = "https://oauth2.googleapis.com/token?&redirect_uri=http://localhost:3000/auth/&code="
-                +code
-                +"&client_id=" + client_id
-                +"&client_secret=" +client_secret
+        String url = "https://oauth2.googleapis.com/token?"
+                +"&redirect_uri=" + googleLoginConfig.getRedirectUri()
+                +"&code=" + code
+                +"&client_id=" + googleLoginConfig.getClientId()
+                +"&client_secret=" + googleLoginConfig.getClientSecret()
                 +"&grant_type=authorization_code";
 
         ResponseEntity<GoogleAccessTokenDTO> responseEntity = restTemplate.exchange(url, HttpMethod.POST, null, GoogleAccessTokenDTO.class);
