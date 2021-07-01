@@ -9,4 +9,5 @@ public interface UserRepo extends PagingAndSortingRepository<User, String> {
 
     boolean existsUserById(String id);
 
+    User findUserById(String id);
 }
