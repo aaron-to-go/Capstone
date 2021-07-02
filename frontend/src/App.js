@@ -11,19 +11,19 @@ export default function App() {
       <BrowserRouter>
           <AuthProvider>
       <Switch>
-          <Route path={"/login"}>
+          <Route path={"/login"} exact>
             <LoginPage/>
           </Route>
-          <Route path={"/auth"}>
+          <Route path={"/auth"} exact>
               <GoogleRedirectPage/>
           </Route>
-          <Route path={"/new"}>
+          <Route path={"/new"} exact>
             <AddCardPage/>
           </Route>
-          <Route path={"/card/{id}"}>
+          <Route path={"/card/{id}"} exact>
               <DetailsPage/>
           </Route>
-          <Route path={"/"}>
+          <Route path={"/home"}>
               <Header/>
           </Route>
 
