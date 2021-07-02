@@ -10,24 +10,23 @@ export default function App() {
   return (
       <BrowserRouter>
           <AuthProvider>
-      <Switch>
-          <Route path={"/login"} exact>
-            <LoginPage/>
-          </Route>
-          <Route path={"/auth"} exact>
-              <GoogleRedirectPage/>
-          </Route>
-          <Route path={"/new"} exact>
-            <AddCardPage/>
-          </Route>
-          <Route path={"/card/{id}"} exact>
-              <DetailsPage/>
-          </Route>
-          <Route path={"/home"}>
-              <Header/>
-          </Route>
-
-      </Switch>
+              <Switch>
+                  <Route path={"/"} exact>
+                    <LoginPage/>
+                  </Route>
+                  <Route path={"/auth"} exact>
+                      <GoogleRedirectPage/>
+                  </Route>
+                  <Route path={"/new"} exact>
+                    <AddCardPage/>
+                  </Route>
+                  <Route path={"/card/{id}"} exact>
+                      <DetailsPage/>
+                  </Route>
+                  <Route path={"/home"}>
+                      <Header/>
+                  </Route>
+              </Switch>
           </AuthProvider>
       </BrowserRouter>
   );
