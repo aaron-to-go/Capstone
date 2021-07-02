@@ -10,6 +10,7 @@ export default function GoogleRedirectPage() {
 
     useEffect(() => {
         loginWithGoogleCode(code)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[code])
 
     return(
