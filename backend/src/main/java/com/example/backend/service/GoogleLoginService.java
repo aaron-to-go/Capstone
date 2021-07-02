@@ -4,6 +4,7 @@ import com.example.backend.config.GoogleLoginConfig;
 import com.example.backend.dto.GoogleAccessTokenDTO;
 import com.example.backend.dto.GoogleUserDTO;
 import com.example.backend.model.User;
+import com.example.backend.security.service.JwtUtilsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,17 +13,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+
 @Service
 public class GoogleLoginService {
     private final RestTemplate restTemplate;
     private final GoogleLoginConfig googleLoginConfig;
     private final UserService userService;
+    private final JwtUtilsService jwtUtilsService;
 
     @Autowired
-    public GoogleLoginService(RestTemplate restTemplate, GoogleLoginConfig googleLoginConfig, UserService userService) {
+    public GoogleLoginService(RestTemplate restTemplate, GoogleLoginConfig googleLoginConfig, UserService userService, JwtUtilsService jwtUtilsService) {
         this.restTemplate = restTemplate;
         this.googleLoginConfig = googleLoginConfig;
         this.userService = userService;
+        this.jwtUtilsService = jwtUtilsService;
     }
 
     public String loginWithGoogle(String code){
@@ -30,8 +35,13 @@ public class GoogleLoginService {
         GoogleUserDTO userInfo = getGoogleProfileInfo(accessToken.getAccess_token());
 
         User user = userService.loginWithGoogleProfile(userInfo, accessToken);
-        System.out.println(user);
-        return null;
+
+
+        HashMap<String, Object> claims = new HashMap<>();
+        claims.put("name", user.getFullName());
+        String jwt = jwtUtilsService.createToken(claims, user.getId());
+
+        return jwt;
     }
 
     private GoogleAccessTokenDTO getAccessToken(String code) {
@@ -44,9 +54,7 @@ public class GoogleLoginService {
 
         ResponseEntity<GoogleAccessTokenDTO> responseEntity = restTemplate.exchange(url, HttpMethod.POST, null, GoogleAccessTokenDTO.class);
 
-        GoogleAccessTokenDTO accessTokenDTO = responseEntity.getBody();
-
-        return accessTokenDTO;
+        return responseEntity.getBody();
     }
 
     private GoogleUserDTO getGoogleProfileInfo(String access_token) {
@@ -58,9 +66,7 @@ public class GoogleLoginService {
 
         ResponseEntity<GoogleUserDTO> responseEntity = restTemplate.exchange(url, HttpMethod.GET, entity, GoogleUserDTO.class);
 
-        GoogleUserDTO response = responseEntity.getBody();
-
-        return response;
+        return responseEntity.getBody();
     }
 
 }
