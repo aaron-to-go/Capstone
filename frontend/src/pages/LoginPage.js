@@ -25,9 +25,7 @@ export default function LoginPage() {
             Google Login
             {config &&
             <a href={`https://accounts.google.com/o/oauth2/v2/auth?scope=${parameter.scope}&access_typ=${parameter.access_type}&include_granted_scopes=${parameter.include_granted_scopes}&response_type=${parameter.response_type}&state=${parameter.state}&redirect_uri=${config.redirect_uri}&client_id=${config.client_id}`}>
-                <button>
-                    Login
-                </button>
+                    Login Button
             </a>
             }
         </div>

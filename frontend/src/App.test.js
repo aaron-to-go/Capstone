@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('dummy test', () => {
+test('renders without crashing', () => {
   render(<App />);
-  const linkElement = screen.getByText("Google Login");
-  expect(linkElement).toBeInTheDocument();
+  const textElement = screen.getByText("Google Login");
+  expect(textElement).toBeInTheDocument();
 });
