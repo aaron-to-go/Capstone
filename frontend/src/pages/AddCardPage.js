@@ -1,22 +1,34 @@
 import axios from 'axios';
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
+import AuthContext from "../context/AuthContext";
+import {useHistory} from "react-router-dom";
 
 
-export default function AddCardPage(props) {
+export default function AddCardPage() {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [department, setDepartment] = useState("");
+    const {token} = useContext(AuthContext);
+    const history = useHistory()
 
     const handleSubmit = (event => {
         event.preventDefault();
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
         axios
-            .post(`/api/cards`, {
+            .post(`/api/cards`,{
                 "title": title,
                 "description": description,
-                "department":department,
-                "user_id":"dummy_frontend_id"})
-            .then()
+                "department":department}, config)
+            .then(() => {
+            history.push('/home')})
+            .catch((error) => {
+            console.log(error)
+        })
             .catch()
     })
 
@@ -33,6 +45,7 @@ export default function AddCardPage(props) {
         <label>
             Department:
             <select name="selectList" id="selectList" value={department} onChange={e => setDepartment(e.target.value.toUpperCase())}>
+                <option value="--">--</option>
                 <option value="SALES">Sales</option>
                 <option value="HR">HR</option>
             </select>

@@ -5,6 +5,10 @@ import DetailsPage from "./pages/DetailsPage";
 import LoginPage from "./pages/LoginPage";
 import GoogleRedirectPage from "./pages/GoogleRedirectPage";
 import AuthProvider from "./context/AuthProvider";
+import CardsPage from "./pages/CardsPage";
+import PrivateRoute from "./routing/PrivateRoute";
+import NewCardButton from "./components/NewCardButton";
+
 
 export default function App() {
   return (
@@ -17,15 +21,17 @@ export default function App() {
                   <Route path={"/auth"} exact>
                       <GoogleRedirectPage/>
                   </Route>
-                  <Route path={"/new"} exact>
+                  <PrivateRoute path={"/new"} exact>
                     <AddCardPage/>
-                  </Route>
-                  <Route path={"/card/{id}"} exact>
+                  </PrivateRoute>
+                  <PrivateRoute path={"/card/{id}"} exact>
                       <DetailsPage/>
-                  </Route>
-                  <Route path={"/home"}>
+                  </PrivateRoute>
+                  <PrivateRoute path={"/home"}>
                       <Header/>
-                  </Route>
+                      <CardsPage/>
+                      <NewCardButton/>
+                  </PrivateRoute>
               </Switch>
           </AuthProvider>
       </BrowserRouter>

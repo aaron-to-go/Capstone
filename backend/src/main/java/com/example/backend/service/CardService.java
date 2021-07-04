@@ -7,6 +7,7 @@ import com.example.backend.utils.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -22,11 +23,11 @@ public class CardService {
         this.idGenerator = idGenerator;
     }
 
-    public void addCard(CardDTO cardDTO) {
+    public void addCard(Principal principal, CardDTO cardDTO) {
 
         String newId = idGenerator.generateID();
 
-        List<StageHistory> history = List.of(new StageHistory(Stage.NEW, cardDTO.getUser_id(),LocalDateTime.now()));
+        List<StageHistory> history = List.of(new StageHistory(Stage.NEW, principal.getName(), LocalDateTime.now()));
         Set<String> votes = Set.of();
         List<Comment> comments = List.of();
         Set<String> tags = Set.of();
@@ -36,7 +37,7 @@ public class CardService {
                 .title(cardDTO.getTitle())
                 .description(cardDTO.getDescription())
                 .datetime(LocalDateTime.now())
-                .user_id(cardDTO.getUser_id())
+                .user_id(principal.getName())
                 .stage(Stage.NEW)
                 .history(history)
                 .votes(votes)
@@ -49,6 +50,8 @@ public class CardService {
     }
 
     public List<Card> listCards(){
-        return cardRepo.findAll();
+        List<Card> response = cardRepo.findAll();
+        System.out.println(response);
+        return response;
     }
 }
