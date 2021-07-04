@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-@Document(collection = "card")
+@Document(collection = "cards")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
