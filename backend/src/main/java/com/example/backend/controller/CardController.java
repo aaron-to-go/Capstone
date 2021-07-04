@@ -6,6 +6,7 @@ import com.example.backend.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -20,12 +21,13 @@ public class CardController {
     }
 
     @PostMapping
-    public void addCard(@RequestBody CardDTO cardDTO) {
-        cardService.addCard(cardDTO);
+    public void addCard(Principal principal, @RequestBody CardDTO cardDTO) {
+        cardService.addCard(principal, cardDTO);
     }
 
     @GetMapping
     public List<Card> listCards() {
+        System.out.println("Get Cards Req. triggered");
         return cardService.listCards();
     }
 }

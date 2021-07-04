@@ -11,6 +11,5 @@ import lombok.NoArgsConstructor;
 public class CardDTO {
     private String title;
     private String description;
-    private String user_id;
     private Department department;
 }
