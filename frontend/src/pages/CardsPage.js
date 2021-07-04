@@ -1,21 +1,18 @@
-import {useParams} from "react-router-dom";
-
+import CardItem from "../components/CardItem";
+import useCards from "../hooks/useCards";
 
 export default function CardsPage(){
 
-    const {user, repo} = useParams();
-    const {cards} = useCards(user, repo);
-    const {watchedPulls, addPullToWatchlist} = useWatchedPulls()
+    const {cards} = useCards();
 
     return (
-        <Wrapper>
+        <div>
             {cards.map((card) => (
-                <PullItem title={card.title}
+                <CardItem title={card.title}
+                    // state={card.state}
                           description={card.description}
-                          addPullToWatchlist={addPullToWatchlist}
                 />
             ))}
-
-        </Wrapper>
+        </div>
     );
 }
