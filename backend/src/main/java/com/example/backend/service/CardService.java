@@ -50,8 +50,6 @@ public class CardService {
     }
 
     public List<Card> listCards(){
-        List<Card> response = cardRepo.findAll();
-        System.out.println(response);
-        return response;
+        return cardRepo.findAll();
     }
 }
