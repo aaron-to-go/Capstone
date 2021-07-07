@@ -43,14 +43,14 @@ export default function AddCardPage() {
     return(
         <Container component="main" maxWidth="xs">
             <CssBaseline />
-            <div className={classes.addCardForm}>
-                <form onSubmit={handleSubmit}>
+            <div >
+                <form className={classes.addCardForm} onSubmit={handleSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
                             required
                             fullWidth
-                            label="title"
+                            label="Title"
                             name="title"
                             autoFocus
                             value={title}
@@ -63,7 +63,7 @@ export default function AddCardPage() {
                             fullWidth
                             multiline
                             rows={5}
-                            label="description"
+                            label="Description"
                             name="description"
                             autoFocus
                             value={description}
@@ -89,7 +89,7 @@ export default function AddCardPage() {
                             <MenuItem value="HR">HR</MenuItem>
                         </Select>
                     </FormControl>
-                    <Button variant="contained" color="primary" type="submit">Done</Button>
+                    <Button className={classes.doneButton} variant="contained" color="primary" type="submit">Done</Button>
                 </form>
             </div>
         </Container>

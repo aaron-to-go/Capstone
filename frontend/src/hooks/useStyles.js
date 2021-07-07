@@ -26,7 +26,7 @@ export default function useStylesHook() {
             paddingBottom: theme.spacing(4),
         },
         card: {
-            height: '200px',
+            height: '250px',
             display: 'flex',
             flexDirection: 'column',
         },
@@ -48,6 +48,11 @@ export default function useStylesHook() {
             right: "15px",
             bottom: "15px",
             size: "large",
+        },
+        doneButton: {
+            color: "darkslategrey",
+            top: "10px"
+
         },
         loginPaper: {
             marginTop: theme.spacing(1),
@@ -77,6 +82,7 @@ export default function useStylesHook() {
         },
         selectEmpty: {
             marginTop: theme.spacing(2),
+            color: "darkslategrey",
         },
     }));
 
