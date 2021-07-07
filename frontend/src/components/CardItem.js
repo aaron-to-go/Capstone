@@ -9,7 +9,6 @@ export default function CardItem(card) {
     return (
         <Card className={classes.card} variant="outlined">
             <CardMedia
-                className={classes.cardMedia}
                 title={card.title}/>
             <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
