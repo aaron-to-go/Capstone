@@ -29,4 +29,9 @@ public class CardController {
     public List<Card> listCards() {
         return cardService.listCards();
     }
+
+    @PutMapping("/{id}")
+    public boolean likeCard(@PathVariable String id){
+        return cardService.likeCard(id);
+    }
 }

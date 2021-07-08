@@ -52,4 +52,17 @@ public class CardService {
     public List<Card> listCards(){
         return cardRepo.findAll();
     }
+
+    public boolean likeCard(String id) {
+        Card card = cardRepo.findCardById(id);
+
+        if(card.getVotes().contains(id)) {
+            card.getVotes().remove(id);
+            cardRepo.save(card);
+            return false;}
+        else {
+            card.getVotes().add(id);
+            cardRepo.save(card);
+            return true;}
+    }
 }
