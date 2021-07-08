@@ -37,7 +37,7 @@ export default function App() {
                         <Header/>
                         <AddCardPage/>
                       </PrivateRoute>
-                      <PrivateRoute path={"/card/{id}"} exact>
+                      <PrivateRoute path={"/card/:id"} exact>
                           <Header/>
                           <DetailsPage/>
                       </PrivateRoute>

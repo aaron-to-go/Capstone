@@ -29,6 +29,13 @@ export default function useStylesHook() {
             textOverflow:"ellipsis",
             overflow:"hidden",
         },
+        cardDetails: {
+            backgroundColor: theme.palette.background.paper,
+            display: 'flex',
+            borderColor: "#fcdc5d",
+            maxWidth: "200px",
+            marginTop: theme.spacing(10),
+        },
         cardGrid: {
             backgroundColor: theme.palette.background.paper,
             paddingTop: theme.spacing(8),
@@ -37,7 +44,6 @@ export default function useStylesHook() {
         doneButton: {
             color: "darkslategrey",
             top: "10px"
-
         },
         footer: {
             backgroundColor: theme.palette.background.paper,

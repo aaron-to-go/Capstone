@@ -18,6 +18,7 @@ export default function CardsPage(){
                         <Grid item key={card.id} xs={12} sm={6} md={4}>
                         <CardItem title={card.title}
                             description={card.description}
+                            id={card.id}
                         />
                         </Grid>
                     ))}
