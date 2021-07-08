@@ -7,8 +7,7 @@ export default function NewCardButton() {
 
     const history = useHistory();
     const routeChange = () =>{
-        let path = `/new`;
-        history.push(path);
+        history.push("/new");
     }
 
     const {useStyles} = useStylesHook();
