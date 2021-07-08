@@ -27,7 +27,6 @@ public class CardController {
 
     @GetMapping
     public List<Card> listCards() {
-        System.out.println("Get Cards Req. triggered");
         return cardService.listCards();
     }
 }
