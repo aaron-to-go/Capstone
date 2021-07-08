@@ -78,7 +78,7 @@ export default function AddCardPage() {
                             labelId="department select"
                             id="department-select"
                             value={department}
-                            onChange={e => setDepartment(e.target.value.toUpperCase())}
+                            onChange={e => setDepartment(e.target.value)}
                             displayEmpty
                             className={classes.selectEmpty}
                         >
