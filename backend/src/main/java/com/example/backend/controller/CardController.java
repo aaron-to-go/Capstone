@@ -29,4 +29,9 @@ public class CardController {
     public List<Card> listCards() {
         return cardService.listCards();
     }
+
+    @GetMapping("/{id}")
+    public Card getCardDetails(@PathVariable String id) {
+        return cardService.getCardDetails(id);
+    }
 }

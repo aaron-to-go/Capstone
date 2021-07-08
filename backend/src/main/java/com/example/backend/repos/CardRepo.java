@@ -11,4 +11,6 @@ public interface CardRepo extends PagingAndSortingRepository<Card, String> {
 
     List<Card> findAll();
 
+    Card findCardById(String id);
+
 }
