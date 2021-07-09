@@ -52,8 +52,4 @@ public class CardService {
     public List<Card> listCards(){
         return cardRepo.findAll();
     }
-
-    public Card getCardDetails(String id) {
-        return cardRepo.findCardById(id);
-    }
 }
