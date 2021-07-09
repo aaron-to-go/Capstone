@@ -1,5 +1,6 @@
 import useStylesHook from "../hooks/useStyles";
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@material-ui/core";
+import {Link} from "react-router-dom";
 import useLike from "../hooks/useLike";
 import {useContext, useEffect, useState} from "react";
 import {grey} from "@material-ui/core/colors";
@@ -15,25 +16,8 @@ export default function CardItem(card) {
     const [votes, setVotes] = useState(card.votes);
     const {token} = useContext(AuthContext);
 
-    // useEffect(() => {
-    //     console.log("Use Effect triggered")
-    //     const config = {
-    //         headers: {
-    //             Authorization: `Bearer ${token}`,
-    //         },
-    //     }
-    //     axios
-    //         .get(`/api/cards/${card.id}`, config)
-    //         .then((response) => response.data)
-    //         .then(setVotes)
-    //         .catch((error) => console.error(error.message));
-    // },[token]);
-    console.log(like)
-
     function handleClick(event) {
         event.preventDefault()
-        console.log("hook triggered")
-        console.log(like)
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -43,7 +27,6 @@ export default function CardItem(card) {
             .put(`/api/cards/${card.id}`,{} ,config)
             .then((response) => response.data)
             .catch((error) => console.error(error.message));
-        console.log("put success")
         axios
             .get(`/api/cards/${card.id}`, config)
             .then((response) => {
@@ -51,9 +34,6 @@ export default function CardItem(card) {
                 setVotes(response.data.votes)
             })
             .catch((error) => console.error(error.message));
-        console.log("get success")
-        console.log(like)
-        console.log(votes)
     }
 
     return (
@@ -70,7 +50,7 @@ export default function CardItem(card) {
             </CardContent>
 
             <CardActions>
-                <Button size="small" color="secondary">
+                <Button size="small" color="secondary" component={Link} to={`/card/${card.id}`}>
                     Details
                 </Button>
                 <Button size="small" color={like === false ? "secondary" : '#fafafa'} onClick={handleClick}>
