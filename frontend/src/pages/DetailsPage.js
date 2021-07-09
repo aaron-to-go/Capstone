@@ -17,7 +17,7 @@ export default function DetailsPage() {
             },
         }
         axios
-            .get(`/api/cards/${id}`, config)
+            .get(`/api/card/${id}`, config)
             .then((response) => response.data)
             .then(setCard)
     }, [id])
