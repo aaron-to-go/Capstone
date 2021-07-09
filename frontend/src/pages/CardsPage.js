@@ -19,6 +19,7 @@ export default function CardsPage(){
                         <CardItem title={card.title}
                             description={card.description}
                             id={card.id}
+                            votes={card.votes}
                         />
                         </Grid>
                     ))}

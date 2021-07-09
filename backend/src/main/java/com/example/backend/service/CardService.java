@@ -1,6 +1,7 @@
 package com.example.backend.service;
 
 import com.example.backend.dto.CardDTO;
+import com.example.backend.dto.LikeDTO;
 import com.example.backend.model.*;
 import com.example.backend.repos.CardRepo;
 import com.example.backend.utils.IDGenerator;
@@ -51,5 +52,29 @@ public class CardService {
 
     public List<Card> listCards(){
         return cardRepo.findAll();
+    }
+
+    public void likeCard(String id) {
+        Card card = cardRepo.findCardById(id);
+
+        if(card.getVotes().contains(id)) {
+            card.getVotes().remove(id);
+            cardRepo.save(card); }
+        else {
+            card.getVotes().add(id);
+            cardRepo.save(card);
+        }
+    }
+
+    public LikeDTO getVotes(String id) {
+        Card card = cardRepo.findCardById(id);
+
+        Set<String> votes = card.getVotes();
+        boolean likeStatus = !card.getVotes().contains(id);
+
+        return LikeDTO.builder()
+                .likeStatus(likeStatus)
+                .votes(votes)
+                .build();
     }
 }
