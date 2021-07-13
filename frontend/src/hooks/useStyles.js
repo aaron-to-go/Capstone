@@ -29,15 +29,29 @@ export default function useStylesHook() {
             textOverflow:"ellipsis",
             overflow:"hidden",
         },
+        cardDetails: {
+            backgroundColor: theme.palette.background.paper,
+            display: 'flex',
+            margin: "0 auto",
+            borderColor: "#fcdc5d",
+            maxWidth: "400px",
+            width: "100%",
+            marginTop: theme.spacing(10),
+        },
         cardGrid: {
             backgroundColor: theme.palette.background.paper,
             paddingTop: theme.spacing(8),
             paddingBottom: theme.spacing(4),
         },
+        detailsText:{
+            marginTop: "15px",
+            fontSize: "0.85em",
+            color: "slategrey"
+        },
         doneButton: {
             color: "darkslategrey",
-            top: "10px"
-
+            top: "20px",
+            width: "100%"
         },
         footer: {
             backgroundColor: theme.palette.background.paper,
@@ -62,6 +76,12 @@ export default function useStylesHook() {
         },
         icon: {
             marginRight: theme.spacing(2),
+        },
+        line:{
+            height: "1px",
+            width: "100%",
+            backgroundColor: "#fcdc5d",
+            marginTop: "15px",
         },
         loginLoadingPage:{
             marginTop: theme.spacing(30),
