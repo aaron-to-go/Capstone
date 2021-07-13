@@ -20,6 +20,8 @@ export default function DetailsPage() {
             .get(`/api/card/${id}`, config)
             .then((response) => response.data)
             .then(setCard)
+            .catch((error) => console.error(error.message));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     return (<Container>

@@ -87,6 +87,11 @@ export default function AddCardPage() {
                             </MenuItem>
                             <MenuItem value="SALES">Sales</MenuItem>
                             <MenuItem value="HR">HR</MenuItem>
+                            <MenuItem value="MARKETING">Marketing</MenuItem>
+                            <MenuItem value="OFFICE">Office</MenuItem>
+                            <MenuItem value="IT">IT</MenuItem>
+                            <MenuItem value="Accounting">Accounting</MenuItem>
+                            <MenuItem value="OTHER">Other</MenuItem>
                         </Select>
                     </FormControl>
                     <Button className={classes.doneButton} variant="contained" color="primary" type="submit">Done</Button>

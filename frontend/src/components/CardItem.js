@@ -1,9 +1,7 @@
 import useStylesHook from "../hooks/useStyles";
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@material-ui/core";
 import {Link} from "react-router-dom";
-import useLike from "../hooks/useLike";
-import {useContext, useEffect, useState} from "react";
-import {grey} from "@material-ui/core/colors";
+import {useContext, useState} from "react";
 import AuthContext from "../context/AuthContext";
 import axios from "axios";
 
@@ -54,7 +52,7 @@ export default function CardItem(card) {
                     Details
                 </Button>
                 <Button size="small" color={like === false ? "secondary" : '#fafafa'} onClick={handleClick}>
-                    {votes.length} Like(s)
+                    {votes.length} Likes
                 </Button>
             </CardActions>
 
