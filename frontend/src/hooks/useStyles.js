@@ -1,4 +1,5 @@
-import {makeStyles} from "@material-ui/core";
+import {Button, makeStyles} from "@material-ui/core";
+import React from "react";
 
 export default function useStylesHook() {
 
@@ -52,6 +53,11 @@ export default function useStylesHook() {
             color: "darkslategrey",
             top: "20px",
             width: "100%"
+        },
+        filter:{
+            size: "small",
+            display: "flex",
+            flexDirection: "row-reverse",
         },
         footer: {
             backgroundColor: theme.palette.background.paper,

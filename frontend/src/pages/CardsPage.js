@@ -1,8 +1,9 @@
 import CardItem from "../components/CardItem";
 import useCards from "../hooks/useCards";
-import {Container, Grid} from "@material-ui/core";
+import {Button, Container, Grid} from "@material-ui/core";
 import useStylesHook from "../hooks/useStyles";
 import NewCardButton from "../components/NewCardButton";
+import React from "react";
 
 export default function CardsPage(){
 
@@ -12,7 +13,12 @@ export default function CardsPage(){
 
     return (
         <div className={classes.heroContent}>
+
             <Container className={classes.cardGrid} maxWidth="md">
+                <div className={classes.filter}>
+                    <Button color="secondary">Filter</Button>
+                    <Button color="secondary">Sort</Button>
+                </div>
                 <Grid container spacing={4}>
                     {cards.map((card) => (
                         <Grid item key={card.id} xs={12} sm={6} md={4}>
